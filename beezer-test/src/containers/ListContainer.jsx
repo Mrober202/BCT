@@ -31,7 +31,7 @@ class ListContainer extends React.Component {
         id: snapshot.key
       };
       this.setState({
-        accounts: [account.text].concat(this.state.accounts)
+        accounts: [account].concat(this.state.accounts)
       });
     })
   }
@@ -48,11 +48,11 @@ class ListContainer extends React.Component {
         <h1>Apps and Users</h1>
         <AccountSelector
           users={this.state.users}
-          selectedUser={this.setFocusUser.bind(this)}
+          selectUser={this.setFocusUser.bind(this)}
         />
         <AccountDetail
-          accounts={this.state.accounts}
-          user={this.state.focusUser}
+        user={this.state.focusUser}
+        accounts={this.state.accounts}
         />
       </div>  
       );

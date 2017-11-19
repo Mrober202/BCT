@@ -2,18 +2,19 @@ import React from "react";
 
 class AccountDetail extends React.Component {
   render() {
-    var accounts = this.props.accounts;
-    var id = this.props.account;
-    var userApps = [];
 
     if(!this.props.user) {
       return null;
     }
 
+    var accounts = this.props.accounts;
+    var id = this.props.user.account;
+    var apps = [];
+
     accounts.forEach(function(account) {
       if(account.id === id) {
         Object.keys(account.text.apps).forEach(function(key) {
-          userApps.push(account.text.userApps[key].appName);
+          apps.push(account.text.apps[key].title);
         })
       }
     })
@@ -23,7 +24,7 @@ class AccountDetail extends React.Component {
       <p>{this.props.user.name}</p>
       <p>{this.props.user.account}</p>
       <p>Users Apps</p>
-      <p>{userApps}</p>
+      <p>{apps}</p>
       </div>
       )
   }
@@ -35,4 +36,4 @@ class AccountDetail extends React.Component {
 
 
 
-export default AccountDetail
+export default AccountDetail;

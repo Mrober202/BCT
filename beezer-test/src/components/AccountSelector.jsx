@@ -25,13 +25,15 @@ class AccountSelector extends React.Component {
     })
 
     return(
+      <div>
       <select
       id="users"
       value={this.state.selectedIndex}
       onChange={this.handleChange.bind(this)}>
       {options}
       </select>
+      </div>
       )
   }
 }
-export default AccountSelector
+export default AccountSelector;
