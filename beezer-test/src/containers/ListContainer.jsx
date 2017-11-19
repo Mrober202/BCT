@@ -3,6 +3,8 @@ import firebaseData from "../firebaseData.js";
 import AccountDetail from "../components/AccountDetail.jsx";
 import AccountSelector from "../components/AccountSelector.jsx";
 
+// container sets up the space on the page that the retrieved data will be constructed in.
+
 class ListContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,7 @@ class ListContainer extends React.Component {
     };
   }
 
+// componentDidMount() instansiates the retrieval of the data via firebase.
   componentDidMount() {
    let userDetails = firebaseData.database().ref("users").orderByKey();
      // console.log(userDetails);
@@ -39,6 +42,7 @@ class ListContainer extends React.Component {
      })
    }
 
+   // Method to define the selcted item from the drop down.
    setFocusUser(user) {
     this.setState({
       focusUser: user

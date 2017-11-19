@@ -9,16 +9,18 @@ class AccountSelector extends React.Component {
     };
   }
 
+  // handle new changes to the selected index.
   handleChange(event) {
     var newIndex = event.target.value;
     this.setState({
       selectedIndex: newIndex
     })
-    
+
     const selectUser = this.props.users[newIndex];
     this.props.selectUser(selectUser);
   }
 
+  // render the drop down menu.
   render() {
     const options = this.props.users.map((user, index) => {
       return <option value={index} key={index}>{user.name}</option>

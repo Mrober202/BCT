@@ -3,6 +3,7 @@ import React from "react";
 class AccountDetail extends React.Component {
   render() {
 
+    // if the choice inst that user then break.
     if(!this.props.user) {
       return null;
     }
@@ -11,6 +12,7 @@ class AccountDetail extends React.Component {
     var id = this.props.user.account;
     var apps = [];
 
+    // for each of the accounts in the dataset if the id matches push the app into the new array of apps for that user.
     accounts.forEach(function(account) {
       if(account.id === id) {
         Object.keys(account.text.apps).forEach(function(key) {
