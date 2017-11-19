@@ -8,6 +8,6 @@ var config = {
   storageBucket: "beezer-test-f0ac5.appspot.com",
   messagingSenderId: "804072347009"
 };
-firebase.initializeApp(config);
+var firebaseData = firebase.initializeApp(config);
 
-export default firebase;
+export default firebaseData;
