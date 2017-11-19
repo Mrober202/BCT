@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "firebase": "beezer-test",
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
