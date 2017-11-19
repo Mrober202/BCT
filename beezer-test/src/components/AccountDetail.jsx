@@ -6,9 +6,9 @@ class AccountDetail extends React.Component {
     if(!this.props.user) {
       return null;
     }
-    
+
     var accounts = this.props.accounts;
-    var id = this.props.users.account;
+    var id = this.props.user.account;
     var apps = [];
 
     accounts.forEach(function(account) {
@@ -21,10 +21,9 @@ class AccountDetail extends React.Component {
 
     return(
       <div>
-      <p>{this.props.user.name}</p>
-      <p>{this.props.user.account}</p>
-      <p>Users Apps</p>
-      <p>{apps}</p>
+      <p>Account User: {this.props.user.name}</p>
+      <p>Account ID: {this.props.user.account}</p>
+      <p>Users Apps: {apps}</p>
       </div>
       )
   }

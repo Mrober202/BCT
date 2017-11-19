@@ -15,8 +15,8 @@ class AccountSelector extends React.Component {
       selectedIndex: newIndex
     })
   
-    const selectedUser = this.props.users[newIndex];
-    this.props.selectedUser(selectedUser);
+    const selectUser = this.props.users[newIndex];
+    this.props.selectUser(selectUser);
   }
 
   render() {

@@ -13,28 +13,31 @@ class ListContainer extends React.Component {
     };
   }
 
-  ComponentDidMount() {
-    let userDetails = firebaseData.database().ref("users").orderByKey();
-    userDetails.on("child_added", snapshot => {
-      let user = {
-        text: snapshot.val(),
-        id:snapshot.key 
-     };
-      this.setState({
-        users: [user.text].concat(this.state.users)
-      });
-    })
-    let accountDetails = firebaseData.database().ref("accounts").orderByKey();
-    accountDetails.on("child_added", snapshot => {
-      let account = {
-        text: snapshot.val(),
-        id: snapshot.key
-      };
-      this.setState({
-        accounts: [account].concat(this.state.accounts)
-      });
-    })
-  }
+  componentDidMount() {
+     let userDetails = firebaseData.database().ref("users").orderByKey();
+     // console.log(userDetails);
+     userDetails.on('child_added', snapshot => {
+       let user = {
+         text: snapshot.val(),
+         id:snapshot.key
+       };
+       this.setState({
+         users: [user.text].concat(this.state.users)
+       });
+     }, error => {console.log(error);
+     })
+     let accountDetails = firebaseData.database().ref("accounts").orderByKey();
+     // console.log(accountDetails);
+     accountDetails.on('child_added', snapshot => {
+       let account = {
+         text: snapshot.val(),
+         id: snapshot.key
+       };
+       this.setState({
+         accounts: [account].concat(this.state.accounts)
+       });
+     })
+   }
 
   setFocusUser(user) {
     this.setState({
