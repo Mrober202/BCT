@@ -14,7 +14,7 @@ class ListContainer extends React.Component {
   }
 
   componentDidMount() {
-     let userDetails = firebaseData.database().ref("users").orderByKey();
+   let userDetails = firebaseData.database().ref("users").orderByKey();
      // console.log(userDetails);
      userDetails.on('child_added', snapshot => {
        let user = {
@@ -39,7 +39,7 @@ class ListContainer extends React.Component {
      })
    }
 
-  setFocusUser(user) {
+   setFocusUser(user) {
     this.setState({
       focusUser: user
     })
@@ -48,15 +48,16 @@ class ListContainer extends React.Component {
   render() {
     return(
       <div>
-        <h1>Apps and Users</h1>
-        <AccountSelector
-          users={this.state.users}
-          selectUser={this.setFocusUser.bind(this)}
-        />
-        <AccountDetail
-        user={this.state.focusUser}
-        accounts={this.state.accounts}
-        />
+      <h1>Apps and Users</h1>
+      <p> Select a name from the dropdown menu to view users information and their app.</p>
+      <AccountSelector
+      users={this.state.users}
+      selectUser={this.setFocusUser.bind(this)}
+      />
+      <AccountDetail
+      user={this.state.focusUser}
+      accounts={this.state.accounts}
+      />
       </div>  
       );
   }
